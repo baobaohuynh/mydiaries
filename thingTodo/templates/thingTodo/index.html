@@ -1,0 +1,15 @@
+{% extends "thingTodo/base.html" %}
+
+{% block page_header %}
+
+  <div class="jumbotron">
+    <h6 class="display-4">Create your life stories</h6>
+    <p class="lead">Diaries help us to organize our thoughts and make them apprehensible. 
+      You can record daily events, thoughts and feelings about certain experiences or opinions.
+      Keeping a diary is a process not only of self expression but also self reflection. 
+    </p>
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+        role="button">Register &raquo;</a>
+  </div>
+
+{% endblock page_header %}

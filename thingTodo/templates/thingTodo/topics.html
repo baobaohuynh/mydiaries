@@ -1,0 +1,44 @@
+{% extends "thingTodo/base.html" %}
+
+{% block page_header %}
+{% endblock page_header %}
+
+{% block content %}
+
+<style>
+
+    .inside:hover {
+        transition: all 0.5s;
+        transform: scale(1.04);
+    }
+
+    .inside {
+        background-color: rgba(249, 244, 244, 0.851);
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+</style>
+
+<h5><a href="{% url 'thingTodo:new_topic' %}">Add new diary</a></h5>
+
+<div class="row mt-2 pb-4">
+    {% for topic in topics %}
+    <div class="inside m-3">
+        <div class="p-4">
+            <p>{{ topic.date_added }}</p>
+            <p class="">{{ topic.text|truncatewords:"65" }}</p>
+            <a class="btn btn-primary" href="{% url 'thingTodo:topic' topic.id %}"
+                role="button">Read more &raquo;
+            </a>
+        </div>
+    </div>
+        
+
+{% empty %}
+<p>There is no diary yet.</p>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "thingTodo/base.html" %}
+
+{% block content %}
+
+<p>Edit diary:</p>
+<form action="{% url 'thingTodo:edit_topic' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Save changes</button>
+</form>
+
+{% endblock content %}
